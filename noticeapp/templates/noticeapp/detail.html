@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <h1>{{ target_notice.title }}</h1>
+  <h6>{{ target_notice.create_at }}</h6>
+  <hr />
+  <h4>{{ target_notice.content }}</h4>
+</div>
+
+<div>
+  <a href="{% url 'noticeapp:update' pk=target_notice.pk %}">Update</a>
+  <hr />
+  <a href="{% url 'noticeapp:delete' pk=target_notice.pk %}">Delete</a>
+</div>
+
+{% endblock content %}

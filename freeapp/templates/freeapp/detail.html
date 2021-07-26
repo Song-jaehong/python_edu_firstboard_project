@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <h1>{{ target_free.title }}</h1>
+  <h6>{{ target_free.create_at }}</h6>
+  <hr />
+  <h4>{{ target_free.content }}</h4>
+</div>
+
+<div>
+  <a href="{% url 'freeapp:update' pk=target_free.pk %}">Update</a>
+  <hr />
+  <a href="{% url 'freeapp:delete' pk=target_free.pk %}">Delete</a>
+</div>
+
+{% endblock content %}

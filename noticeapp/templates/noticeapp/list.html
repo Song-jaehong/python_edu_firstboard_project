@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block content %}
+
+<!--  -->
+
+<div class="boardBox">
+  <div>
+    <form action="{% url 'noticeapp:list' %}" method="get">
+      <input type="hidden" name="search" value="전체" />
+      <button>전체</button>
+    </form>
+    {% for type in type_list %}
+    <form action="{% url 'noticeapp:list' %}" method="get">
+      <input type="hidden" name="search" value="{{type}}" />
+      <button>{{type}}</button>
+    </form>
+    {% endfor %}
+  </div>
+  <div class="col-10">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Type</th>
+          <th scope="col">Title</th>
+          <th scope="col">User</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for notice in notice_list %}
+        <tr>
+          <th scope="row">{{notice.pk}}</th>
+          <td>{{notice.type}}</td>
+          <td>
+            <a href="{% url 'noticeapp:detail' pk=notice.pk %}">
+              {{notice.title}}
+            </a>
+          </td>
+          <td>Master</td>
+          <td>{{notice.create_at}}</td>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--  -->
+
+<hr />
+
+<div>
+  <a href="{% url 'noticeapp:create' %}">글 작성하기</a>
+</div>
+<!--  -->
+
+{% endblock content %}

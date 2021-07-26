@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block content %}
+
+<!--  -->
+
+<div class="boardBox">
+  <div class="col-10">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Title</th>
+          <th scope="col">User</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for gallary in gallary_list %}
+        <tr>
+          <th scope="row">{{gallary.pk}}</th>
+          <td>
+            <a href="{% url 'gallaryapp:detail' pk=gallary.pk %}">
+              {{gallary.title}}
+            </a>
+          </td>
+          <td>Master</td>
+          <td>{{gallary.create_at}}</td>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--  -->
+
+<hr />
+
+<div>
+  <a href="{% url 'gallaryapp:create' %}">글 작성하기</a>
+</div>
+<!--  -->
+
+{% endblock content %}

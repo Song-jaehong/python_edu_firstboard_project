@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% load bootstrap4 %} {% block content %}
+
+<div>
+  <form
+    action="{% url 'gallaryapp:update' pk=target_gallary.pk %}"
+    method="post"
+  >
+    {% csrf_token %} {% bootstrap_form form %}
+    <input type="submit" value="글 수정" />
+  </form>
+</div>
+
+{% endblock content %}

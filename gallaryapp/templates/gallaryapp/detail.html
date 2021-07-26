@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <h1>{{ target_gallary.title }}</h1>
+  <h6>{{ target_gallary.create_at }}</h6>
+  <hr />
+  <h4>{{ target_gallary.content }}</h4>
+</div>
+
+<div>
+  <a href="{% url 'gallaryapp:update' pk=target_gallary.pk %}">Update</a>
+  <hr />
+  <a href="{% url 'gallaryapp:delete' pk=target_gallary.pk %}">Delete</a>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,6 @@
+{% extends 'base.html' %} {% block content %}
+<form action="{% url 'noticeapp:delete' pk=target_notice.pk %} " method="post">
+  {% csrf_token %}
+  <input type="submit" value="글 삭제" />
+</form>
+{% endblock content %}
